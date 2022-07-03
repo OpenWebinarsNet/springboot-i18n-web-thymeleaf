@@ -16,12 +16,12 @@
   <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-  <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
-  <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+  <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+  <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
   <meta name="theme-color" content="#7952b3">
 
 
@@ -48,14 +48,24 @@
 <body>
 
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#" th:text="#{company.name}">Company name</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+  <input class="form-control form-control-dark w-100" type="text" th:placeholder="#{search}" aria-label="Search">
+  <div class="navbar-nav">
+    <div class="nav-item text-nowrap px-3">
+      <a th:href="@{/?lang=es}">
+        <img src="../img/es.svg" th:src="@{/img/es.svg}" width="32" />
+      </a>
+      <a th:href="@{/?lang=en}">
+      <img src="../img/us.svg" th:src="@{/img/us.svg}" width="32" />
+        </a>
+    </div>
+  </div>
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="#">Sign out</a>
+      <a class="nav-link px-3" href="#" th:text="#{signout}">Sign out</a>
     </div>
   </div>
 </header>
@@ -68,43 +78,43 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">
               <span data-feather="home"></span>
-              Dashboard
+              <span th:text="#{menu.dashboard}">Dashboard</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="file"></span>
-              Orders
+              <span th:text="#{menu.orders}">Orders</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="shopping-cart"></span>
-              Products
+              <span th:text="#{menu.products}">Products</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="users"></span>
-              Customers
+              <span th:text="#{menu.customers}">Customers</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="bar-chart-2"></span>
-              Reports
+              <span th:text="#{menu.reports}">Reports</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="layers"></span>
-              Integrations
+              <span th:text="#{menu.integrations}">Integrations</span>
             </a>
           </li>
         </ul>
 
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Saved reports</span>
+          <span th:text="#{menu.label.saved-reports}">Saved reports</span>
           <a class="link-secondary" href="#" aria-label="Add a new report">
             <span data-feather="plus-circle"></span>
           </a>
@@ -113,25 +123,25 @@
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="file-text"></span>
-              Current month
+              <span th:text="#{menu.reports.current-month}">Current month</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="file-text"></span>
-              Last quarter
+              <span th:text="#{menu.reports.last-quarter}">Last quarter</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="file-text"></span>
-              Social engagement
+              <span th:text="#{menu.reports.social-engagement}">Social engagement</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="file-text"></span>
-              Year-end sale
+              <span th:text="#{menu.reports.year-end-sale}">Year-end sale</span>
             </a>
           </li>
         </ul>
@@ -140,31 +150,43 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
+        <h1 class="h2" th:text="#{home.title}">Dashboard</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" th:text="#{button.share}">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" th:text="#{button.export}">Export</button>
           </div>
           <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
             <span data-feather="calendar"></span>
-            This week
+            <span th:text="#{calendar.option.this-week}">This week</span>
           </button>
         </div>
       </div>
 
+      <script th:inline="javascript">
+        var days = [
+          /*[[#{calendar.days.sunday}]]*/,
+          /*[[#{calendar.days.monday}]]*/,
+          /*[[#{calendar.days.tuesday}]]*/,
+          /*[[#{calendar.days.wednesday}]]*/,
+          /*[[#{calendar.days.thursday}]]*/,
+          /*[[#{calendar.days.friday}]]*/,
+          /*[[#{calendar.days.saturday}]]*/
+        ];
+      </script>
+
       <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
-      <h2>Section title</h2>
+      <h2 th:text="#{home.section.title}">Section title</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Header</th>
-            <th scope="col">Header</th>
-            <th scope="col">Header</th>
-            <th scope="col">Header</th>
+            <th scope="col" th:text="#{home.table.header-1}">Header</th>
+            <th scope="col" th:text="#{home.table.header-2}">Header</th>
+            <th scope="col" th:text="#{home.table.header-3}">Header</th>
+            <th scope="col" th:text="#{home.table.header-4}">Header</th>
           </tr>
           </thead>
           <tbody>
